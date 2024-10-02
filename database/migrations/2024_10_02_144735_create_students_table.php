@@ -18,7 +18,6 @@ return new class extends Migration
             $table->integer('age');
 
             $table->foreignId('classroom_id')->constrained('class_rooms');
-            $table->foreignId('student_subject_id')->constrained('student_subject');
 
             $table->timestamps();
         });
