@@ -1,0 +1,70 @@
+# TOOL: https://dbdiagram.io/d
+
+# CODE:
+
+  Table students {
+    id int [pk, increment]
+    name string
+    surname string
+    age int
+
+    classroom_id int
+    
+    created_at timestamp
+    updated_at timestamp
+  }
+
+  Table classrooms {
+    id int [pk, increment]
+    course string
+    academic_year string
+
+    created_at timestamp
+    updated_at timestamp
+  }
+
+  Table student_subject {
+    id int [pk, increment]
+    academic_year string
+
+    student_id int
+    subject_id int
+
+    created_at timestamp
+    updated_at timestamp
+  }
+
+  Table subjects {
+    id int [pk, increment]
+    name string
+
+    created_at timestamp
+    updated_at timestamp
+  }
+
+
+  Table student_subject_grade {
+    id int [pk, increment]
+    academic_year string
+
+    student_subject_id int
+    grades_id int
+
+    created_at timestamp
+    updated_at timestamp
+  }
+
+  Table grades {
+    id int [pk, increment]
+    gradeNum float
+
+    created_at timestamp
+    updated_at timestamp
+  }
+
+
+  Ref: classrooms.id < students.classroom_id
+  Ref: student_subject.student_id < students.id
+  Ref: subjects.id < student_subject.subject_id
+  Ref: student_subject.id < student_subject_grade.student_subject_id
+  Ref: grades.id < student_subject_grade.grades_id
