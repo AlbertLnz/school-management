@@ -1,4 +1,4 @@
-<header>
+<header id="header">
 
   <p>
     <a href="/">Home</a>

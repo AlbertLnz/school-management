@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
@@ -9,6 +10,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
+
+// Classroom
+Route::get('/school/classrooms', [ClassroomController::class, 'index'])->name('api.classrooms.index');
 
 // Students CRUD
 Route::post('/student', [StudentController::class, 'store'])->name('api.students.store'); // C

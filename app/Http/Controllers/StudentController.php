@@ -100,7 +100,6 @@ class StudentController extends Controller
             'name' => 'required | min:3  | max:20',
             'surname' => 'required | min:3 | max:50',
             'age' => 'required | numeric|min:12 | numeric|max:16',
-            'classroom_id' => 'required'
         ]);
 
         if ($validator->fails()) {

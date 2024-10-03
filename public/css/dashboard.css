@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: #F4F5F7;
+  padding: 20px;
+  display: grid;
+  grid-template-rows: 0.1fr 0.8fr 0.1fr;
+}
+
+#header {
+  padding: 20px 0;
+}
+
+#dashboard {
+  background-color: #00000025;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+
+    th {
+      padding: 10px;
+      text-align: left;
+      background-color: #00000025;
+    }
+
+    td {
+      padding: 10px;
+      border-bottom: 1px solid #00000025;
+    }
+  }
+}
+
+#footer {
+  padding: 20px 0;
+}
