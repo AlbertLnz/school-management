@@ -7,8 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subject extends Model
 {
-    /** @use HasFactory<\Database\Factories\SubjectsFactory> */
+    /** @use HasFactory<\Database\Factories\SubjectFactory> */
     use HasFactory;
 
-    protected $guarded = [''];
+    protected $guarded = [' '];
+
+    public function students()
+    {
+        return $this->belongsToMany(Student::class, 'student_subject');
+    }
 }

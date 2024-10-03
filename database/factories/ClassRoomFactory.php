@@ -16,8 +16,10 @@ class ClassRoomFactory extends Factory
      */
     public function definition(): array
     {
+        $courses = ['1r ESO', '2n ESO', '3r ESO', '4t ESO'];
+
         return [
-            //
+            'course' => fake()->unique()->randomElement($courses),
         ];
     }
 }

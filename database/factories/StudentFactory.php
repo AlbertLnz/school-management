@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\ClassRoom;
+use App\Models\Student;
+use App\Models\Subject;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +20,10 @@ class StudentFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->firstName(),
+            'surname' => fake()->lastName(),
+            'age' => fake()->numberBetween(12, 16),
+            'classroom_id' => fake()->numberBetween(1, 4),
         ];
     }
 }

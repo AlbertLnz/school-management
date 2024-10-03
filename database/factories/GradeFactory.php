@@ -17,7 +17,7 @@ class GradeFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'gradeNum' => fake()->randomFloat($nbMaxDecimals = 4, $min = 0, $max = 10),
         ];
     }
 }
