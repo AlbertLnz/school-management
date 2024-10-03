@@ -25,6 +25,7 @@
           }
         }
 
+        // BETTER USE ONLY THIS ONE: /students/{studentId}/grades/average
         async function getStudentGradesBySubject($studentId, $subjectId) {
           try {
             const response = await fetch(`http://localhost:8000/api/students/${$studentId}/${$subjectId}/grades`)
@@ -50,11 +51,14 @@
 
             const subjectAverage = await getStudentGradesBySubject(studentId, subject.id)
             const squareColor = subjectAverage.average > 5.0 ? '#84BC42' : '#E75148'
+            const subjectName = subject.name.toLowerCase().replace(/\s+/g, '_');
 
             square.innerHTML = `
-                <h2>${subject.name}</h2>
-                <h6>${Math.round(subjectAverage.average * 100) / 100}</h6>
-                <button>Delete</button>
+                <a href=${'/dashboard/students/'+studentId+'/'+subjectName+'/grades'}>
+                  <h2>${subject.name}</h2>
+                  <h6>${Math.round(subjectAverage.average * 100) / 100}</h6>
+                  <button>Delete</button>
+                </a>
             `
 
             square.style.backgroundColor = squareColor

@@ -54,14 +54,19 @@ body {
     width: 130px;
     height: 130px;
     background-color: #84BC42;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 20px 0;
-    align-items: center;
     margin: 10px;
     text-align: center;
     border-radius: 6px;
+
+    a {
+      height: 100%;
+      width: 100%;
+      padding: 20px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
 
     h2 {
       font-size: 18px;
@@ -69,6 +74,35 @@ body {
 
     h6 {
       font-size: 12px;
+    }
+  }
+}
+
+#dashboard3 {
+  display: flex;
+  width: 100%;
+  height: auto;
+
+  canvas {
+    max-width: 60%;
+    max-height: 100%;
+  }
+
+  #grades-container {
+    width: 40%;
+    height: 100%;
+    max-width: 40%;
+    max-height: 100%;
+    padding: 20px 0;
+
+    ul {
+      list-style: none;
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      justify-content: start;
+      place-items: center;
+      gap: 10px;
     }
   }
 }

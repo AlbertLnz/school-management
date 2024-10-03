@@ -9,3 +9,4 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('web.dashboard');
 Route::get('/dashboard/students/{id}', [DashboardController::class, 'index2'])->name('web.dashboard2');
+Route::get('/dashboard/students/{studentId}/{subjectId}/grades', [DashboardController::class, 'index3'])->name('web.dashboard3');
