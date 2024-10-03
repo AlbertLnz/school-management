@@ -147,7 +147,7 @@
                 if (!response.ok) {
                   throw new Error('Error al eliminar el estudiante')
                 }
-                // renderMainTable()
+                renderMainTable()
               } catch (error) {
                 console.error('Hubo un error:', error)
               }
