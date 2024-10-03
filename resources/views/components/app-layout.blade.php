@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 </head>
 <body>
-    @include('partials.header')
     {{ $slot }}
     @include('partials.footer')
     @stack('scripts')

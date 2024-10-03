@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
 use App\Models\Subject;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 // Command: php artisan make:controller SubjectController --resource
@@ -123,5 +125,24 @@ class SubjectController extends Controller
                 'subject deleted' => $subject
             ], 200);
         }
+    }
+
+    // SPECIALS
+
+    public function getStudentSubjects(string $studentId)
+    {
+        $student = Student::find($studentId);
+        $subjects = Subject::all();
+        $studentSubjects = DB::table('student_subject')->where('student_id', $student->id)->get();
+
+        $subjects = [];
+        foreach ($studentSubjects as $studentSubject) {
+            $subjects[] = [
+                'id' => $studentSubject->subject_id,
+                'name' => Subject::where('id', $studentSubject->subject_id)->value('name'),
+            ];
+        }
+
+        return response()->json($subjects);
     }
 }

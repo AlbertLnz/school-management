@@ -30,7 +30,7 @@ Route::put('/subjects/{id}', [SubjectController::class, 'update'])->name('api.su
 Route::delete('/subjects/{id}', [SubjectController::class, 'destroy'])->name('api.subjects.destroy'); // D
 
 Route::get('/subjects/{id}', [SubjectController::class, 'show'])->name('api.subjects.show'); // Get 1 subject
-
+Route::get('/students/{studentId}/subjects', [SubjectController::class, 'getStudentSubjects'])->name('api.students.getStudentSubjects'); // Get subjects of a student
 
 // Grades CRUD
 // ...

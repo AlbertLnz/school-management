@@ -6,4 +6,8 @@
     <a href="/api/user">User</a>
   </p>
 
+  <p>
+    {{ $dashboardName }}
+  </p>
+
 </header>

@@ -1,4 +1,5 @@
 <x-app-layout title="Dashboard">
+  @include('partials.header', ['dashboardName' => 'Dashboard'])
   <main id="dashboard">
     <table class="table table-sm">
       <thead>
