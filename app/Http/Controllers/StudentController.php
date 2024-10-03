@@ -43,7 +43,7 @@ class StudentController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response(['error' => $validator->errors()], 401);
+            return response(['error' => $validator->errors()], 400);
         } else {
 
             $student = new Student();
