@@ -25,46 +25,41 @@
           }
         }
 
-        // BETTER USE ONLY THIS ONE: /students/{studentId}/grades/average
-        async function getStudentGradesBySubject($studentId, $subjectId) {
+        async function getStudentGradesAverage($studentId) {
           try {
-            const response = await fetch(`http://localhost:8000/api/students/${$studentId}/${$subjectId}/grades`)
+            const response = await fetch(`http://localhost:8000/api/students/${$studentId}/grades/average`)
             if (!response.ok) {
               throw new Error('Error al obtener el estudiante')
             }
-
             const data = await response.json()
             return data
-          }
-          catch (error) {
+          } catch (error) {
             console.error('Hubo un error:', error)
           }
         }
-        
+
         async function drawSubjects() {
           const content = document.getElementById('dashboard2')
           const subjects = await getStudentSubjects()
+          const gradesAverage = await getStudentGradesAverage(studentId)
 
-          for (const subject of subjects) {
+          subjects.forEach(subject => {
             const square = document.createElement('div')
+            const subjectAverage = gradesAverage.subjects.filter(grade => grade.subject === subject.name)[0].average
+            const squareColor = subjectAverage >= 5.0 ? '#84BC42' : '#E75148'
             square.classList.add('square')
-
-            const subjectAverage = await getStudentGradesBySubject(studentId, subject.id)
-            const squareColor = subjectAverage.average > 5.0 ? '#84BC42' : '#E75148'
-            const subjectName = subject.name.toLowerCase().replace(/\s+/g, '_');
-
             square.innerHTML = `
-                <a href=${'/dashboard/students/'+studentId+'/'+subjectName+'/grades'}>
-                  <h2>${subject.name}</h2>
-                  <h6>${Math.round(subjectAverage.average * 100) / 100}</h6>
-                  <button>Delete</button>
-                </a>
+              <a href=${'/dashboard/students/'+studentId+'/'+subject.name+'/grades'}>
+                <h2>${subject.name}</h2>
+                <h6>${Math.round(subjectAverage * 100) / 100}</h6>
+                <button>Delete</button>
+              </a>
             `
-
             square.style.backgroundColor = squareColor
             content.appendChild(square);
-          }
+          })
         }
+
         drawSubjects()
       })
     </script>
