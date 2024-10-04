@@ -7,12 +7,13 @@
   @push('scripts')
     <script>
       document.addEventListener('DOMContentLoaded', async () => {
-        const studentId = @json($student->id)
+        const studentId = @json($student->id);
+        const path = '{{ config('app.url') }}'
         
         async function getStudentSubjects() {
 
           try {
-            const response = await fetch(`http://localhost:8000/api/students/${studentId}/subjects`)
+            const response = await fetch(`${path}/api/students/${studentId}/subjects`)
             if (!response.ok) {
               throw new Error('Error al obtener el estudiante')
             }
@@ -27,7 +28,7 @@
 
         async function getStudentGradesAverage($studentId) {
           try {
-            const response = await fetch(`http://localhost:8000/api/students/${$studentId}/grades/average`)
+            const response = await fetch(`${path}/api/students/${$studentId}/grades/average`)
             if (!response.ok) {
               throw new Error('Error al obtener el estudiante')
             }

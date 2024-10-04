@@ -23,11 +23,12 @@
         const $ = (el) => document.querySelector(el)
         const $$ = (els) => document.querySelectorAll(els)
 
+        const path = '{{ config('app.url') }}'
         const tableBody = $('#students-table-body')
 
         async function getClassrooms() {
           try {
-            const response = await fetch('http://localhost:8000/api/school/classrooms')
+            const response = await fetch(`${path}/api/school/classrooms`)
             if (!response.ok) {
               throw new Error('Error al obtener las clases')
             }
@@ -42,7 +43,7 @@
 
         async function getStudents() {
           try {
-            const response = await fetch('http://localhost:8000/api/students')
+            const response = await fetch(`${path}/api/students`)
             if (!response.ok) {
               throw new Error('Error al obtener los estudiantes')
             }
@@ -57,7 +58,7 @@
 
         async function updateStudent(id) {
           try {
-            const response = await fetch(`http://localhost:8000/api/students/${id}`, {
+            const response = await fetch(`${path}/api/students/${id}`, {
               method: 'PUT',
               body: JSON.stringify({
                 name: $(`#student-name-${id}`).value,
@@ -78,7 +79,7 @@
 
         async function addNewStudent() {
           try {
-            const response = await fetch('http://localhost:8000/api/student', {
+            const response = await fetch(`${path}/api/student`, {
               method: 'POST',
               body: JSON.stringify({
                 name: $('#new-student-name').value,
@@ -212,7 +213,7 @@
               try {
                 const id = button.id.split('-')[1]
                 console.log('eliminar id:', id)
-                const response = await fetch(`http://localhost:8000/api/students/${id}`, {
+                const response = await fetch(`${path}/api/students/${id}`, {
                   method: 'DELETE',
                 })
                 if (!response.ok) {

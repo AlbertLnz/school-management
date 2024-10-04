@@ -15,13 +15,11 @@
         const subject = @json($subject);
         const studentId = @json($student->id);
         const subjectId = @json($subject->id);
-
-        console.log('STUDENT:', student)
-        console.log('SUBJECT:', subject)
+        const path = '{{ config('app.url') }}'
 
         async function getStudentGradesBySubject($studentId, $subjectId) {
           try {
-            const response = await fetch(`http://localhost:8000/api/students/${$studentId}/${$subjectId}/grades`)
+            const response = await fetch(`${path}/api/students/${$studentId}/${$subjectId}/grades`)
             if (!response.ok) {
               throw new Error('Error al obtener el estudiante')
             }

@@ -84,7 +84,7 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => env('DB_URL'),
+            'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '5432'),
             'database' => env('DB_DATABASE', 'laravel'),
@@ -94,7 +94,7 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
             'search_path' => 'public',
-            'sslmode' => 'prefer',
+            'sslmode' => env('DB_SSLMODE', 'prefer'),
         ],
 
         'sqlsrv' => [
@@ -110,6 +110,19 @@ return [
             'prefix_indexes' => true,
             // 'encrypt' => env('DB_ENCRYPT', 'yes'),
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
+        ],
+
+        'libsql' => [
+            'driver' => 'libsql',
+            'url' => env('DB_DATABASE', 'database.sqlite'),
+            'authToken' => env('DB_AUTH_TOKEN', ''),
+            'syncUrl' => env('DB_SYNC_URL', ''),
+            'syncInterval' => env('DB_SYNC_INTERVAL', 5),
+            'read_your_writes' => env('DB_READ_YOUR_WRITES', true),
+            'encryptionKey' => env('DB_ENCRYPTION_KEY', ''),
+            'remoteOnly' => env('DB_REMOTE_ONLY', false),
+            'database' => null,
+            'prefix' => '',
         ],
 
     ],
@@ -147,7 +160,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
         ],
 
         'default' => [
