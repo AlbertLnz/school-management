@@ -90,6 +90,8 @@ class StudentController extends Controller
     {
         $student = Student::find($id);
 
+        // dd($student); // Verifica que sea una instancia de Student, no un stdClass
+
         if (is_null($student)) {
             return response()->json(['message' => 'Student not found'], 404);
         }
@@ -103,16 +105,15 @@ class StudentController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response(['error' => $validator->errors()], 401);
-        } else {
-            $student->fill($data);
-            $student->save($data);
-
-            return response([
-                'message' => 'Student updated!',
-                'student updated' => response()->json($student)
-            ], 200);
+            return response(['error' => $validator->errors()], 400);
         }
+
+        $student->update($data);
+
+        return response()->json([
+            'message' => 'Student updated!',
+            'student' => $student
+        ], 200);
     }
 
     /**

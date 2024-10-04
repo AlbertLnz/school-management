@@ -98,8 +98,7 @@ class SubjectController extends Controller
         if ($validator->fails()) {
             return response(['error' => $validator->errors()], 401);
         } else {
-            $subject->fill($data);
-            $subject->save($data);
+            $subject->update($data);
 
             return response([
                 'message' => 'Subject updated!',
@@ -133,15 +132,15 @@ class SubjectController extends Controller
     {
         $student = Student::find($studentId);
         $subjects = Subject::all();
-        $studentSubjects = DB::table('student_subject')->where('student_id', $student->id)->get();
+        $studentSubjects = DB::table('student_subject')->where('student_id', $student->id)->get()->toArray();
 
         $subjects = [];
         foreach ($studentSubjects as $studentSubject) {
             $subjects[] = [
-                'id' => $studentSubject->subject_id,
-                'name' => Subject::where('id', $studentSubject->subject_id)->value('name'),
+                'id' => $studentSubject['subject_id'],
+                'name' => Subject::where('id', $studentSubject['subject_id'])->value('name'),
             ];
-        }
+        };
 
         return response()->json($subjects);
     }
