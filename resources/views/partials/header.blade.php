@@ -1,10 +1,10 @@
 <header id="header">
 
-  <p>
+  <div>
     <a href="/">Home</a>
     <a href="/dashboard">Dashboard</a>
-    <a href="/api/user">User</a>
-  </p>
+    <a href="/api/swagger">API Documentation</a>
+  </div>
 
   <p>
     {{ $dashboardName }}

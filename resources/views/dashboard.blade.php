@@ -4,7 +4,7 @@
     <table class="table table-sm">
       <thead>
           <tr>
-              <th>id</th>
+              <th>Id</th>
               <th>Name</th>
               <th>Surname</th>
               <th>Age</th>
