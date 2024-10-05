@@ -68,7 +68,7 @@ class SubjectController extends Controller
             return response([
                 'message' => 'New subject created!',
                 'subject created' => response()->json($subject)
-            ], 200);
+            ], 201);
         }
     }
 

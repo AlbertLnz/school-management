@@ -73,7 +73,7 @@ class GradeController extends Controller
             return response([
                 'message' => 'New grade created!',
                 'grade created' => response()->json($grade)
-            ], 200);
+            ], 201);
         }
     }
 
