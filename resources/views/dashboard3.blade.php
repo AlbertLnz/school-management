@@ -48,7 +48,7 @@
               data: {
                   labels: gradesLabels,
                   datasets: [{
-                      label: 'Notas',
+                      label: 'Evolució de les notes',
                       data: gradesValues,
                       borderColor: 'rgba(75, 192, 192, 1)',
                       backgroundColor: 'rgba(75, 192, 192, 0.2)',
@@ -70,6 +70,9 @@
         async function drawContainer(grades) {
           const gradesContainer = document.getElementById('grades-container')
           const average = grades.average
+
+          average > 5.0 ? averageColor = '#84BC42' : averageColor = '#E75148'
+
           const msg = `
             <table>
               <thead>
@@ -85,8 +88,8 @@
               <tbody>
                 <tr>
                   <td>${student.name} ${student.surname}</td>
-                  <td>${grades.subject}</td>
-                  <td>${average}</td>
+                  <td>${subject.name}</td>
+                  <td style="font-weight: bold; color: ${averageColor}">${average}</td>
                   <td>${grades.min}</td>
                   <td>${grades.max}</td>
                 </tr>
