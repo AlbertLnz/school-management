@@ -24,6 +24,67 @@
                 }
             }
         },
+        "api/grades": {
+            "get": {
+                "tags": [
+                    "grades"
+                ],
+                "operationId": "cf17b7319c92e21b02a56ed2d5a08cd9",
+                "responses": {
+                    "200": {
+                        "description": "Get all grades"
+                    }
+                }
+            }
+        },
+        "api/grades/{gradeId}": {
+            "get": {
+                "tags": [
+                    "grades"
+                ],
+                "operationId": "1af9169b0a21a3589130b37f53859b09",
+                "responses": {
+                    "200": {
+                        "description": "Get 1 grade"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "grades"
+                ],
+                "operationId": "4766cb24216941e4321a364a1a8c7e74",
+                "responses": {
+                    "200": {
+                        "description": "Create a new grade"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "grades"
+                ],
+                "operationId": "b5449ee7c6c06aada8d6b43cb549c409",
+                "responses": {
+                    "200": {
+                        "description": "Delete a grade"
+                    }
+                }
+            }
+        },
+        "api/grade": {
+            "post": {
+                "tags": [
+                    "grades"
+                ],
+                "operationId": "4ded76b17c6672e25bfe4dd0d2f214fa",
+                "responses": {
+                    "200": {
+                        "description": "Create a new grade"
+                    }
+                }
+            }
+        },
         "api/students/{studentId}/{subjectId}/grades": {
             "get": {
                 "tags": [
@@ -212,12 +273,12 @@
     },
     "tags": [
         {
-            "name": "classrooms",
-            "description": "classrooms"
+            "name": "grades",
+            "description": "Grades API"
         },
         {
-            "name": "grades",
-            "description": "grades"
+            "name": "classrooms",
+            "description": "classrooms"
         },
         {
             "name": "students",

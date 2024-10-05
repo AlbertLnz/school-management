@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 /**
  * @OA\Tag(
- *  name="Grades",
+ *  name="grades",
  *  description="Grades API"
  * )
  */
@@ -19,12 +19,116 @@ use Illuminate\Support\Facades\Validator;
 // Command: php artisan make:controller GradeController
 class GradeController extends Controller
 {
+
+    /**
+     * @OA\Get(
+     *     path="api/grades",
+     *     tags={"grades"},
+     *     @OA\Response(response="200", description="Get all grades"),
+     * )
+     */
     public function index()
     {
         $grades = Grade::all();
-
         return response()->json($grades);
     }
+
+
+    /**
+     * @OA\Get(
+     *     path="api/grades/{gradeId}",
+     *     tags={"grades"},
+     *     @OA\Response(response="200", description="Get 1 grade"),
+     * )
+     */
+    public function show(int $id)
+    {
+        $grade = Grade::find($id);
+        return response()->json($grade);
+    }
+
+    /**
+     * @OA\Post(
+     *     path="api/grade",
+     *     tags={"grades"},
+     *     @OA\Response(response="200", description="Create a new grade"),
+     * )
+     */
+    public function store(Request $request)
+    {
+        $data = $request->all();
+
+        $validator = Validator::make($data, [
+            'gradeNum' => 'required | numeric | min:0 | max:10',
+        ]);
+
+        if ($validator->fails()) {
+            return response(['error' => $validator->errors()], 400);
+        } else {
+            $grade = new Grade();
+            $grade->gradeNum = $data['gradeNum'];
+
+            $grade->save();
+
+            return response([
+                'message' => 'New grade created!',
+                'grade created' => response()->json($grade)
+            ], 200);
+        }
+    }
+
+    /**
+     * @OA\Put(
+     *     path="api/grades/{gradeId}",
+     *     tags={"grades"},
+     *     @OA\Response(response="200", description="Create a new grade"),
+     * )
+     */
+    public function update(Request $request, int $id)
+    {
+        $grade = Grade::find($id);
+
+        $data = $request->all();
+
+        $validator = Validator::make($data, [
+            'gradeNum' => 'required | numeric | min:0 | max:10',
+        ]);
+
+        if ($validator->fails()) {
+            return response(['error' => $validator->errors()], 400);
+        } else {
+            $grade->update($data);
+
+            return response([
+                'message' => 'Grade updated!',
+                'grade updated' => response()->json($grade)
+            ], 200);
+        }
+    }
+
+    /**
+     * @OA\Delete(
+     *     path="api/grades/{gradeId}",
+     *     tags={"grades"},
+     *     @OA\Response(response="200", description="Delete a grade"),
+     * )
+     */
+    public function destroy(int $id)
+    {
+        $grade = Grade::find($id);
+
+        if (is_null($grade)) {
+            return response()->json(['message' => 'Grade not found'], 404);
+        } else {
+            $grade->delete();
+
+            return response([
+                'message' => "Grade deleted!",
+                'grade deleted' => $grade
+            ], 200);
+        }
+    }
+
 
     // SPECIAL FUNCTIONS
 

@@ -22,7 +22,6 @@ Route::delete('/students/{id}', [StudentController::class, 'destroy'])->name('ap
 
 Route::get('/students/{id}', [StudentController::class, 'show'])->name('api.students.show'); // Get 1 student
 
-
 // Subjects CRUD
 Route::post('/subject', [SubjectController::class, 'store'])->name('api.subjects.store'); // C
 Route::get('/subjects', [SubjectController::class, 'index'])->name('api.subjects.index'); // R
@@ -33,7 +32,12 @@ Route::get('/subjects/{id}', [SubjectController::class, 'show'])->name('api.subj
 Route::get('/students/{studentId}/subjects', [SubjectController::class, 'getStudentSubjects'])->name('api.students.getStudentSubjects'); // Get subjects of a student
 
 // Grades CRUD
-// ...
+Route::post('/grade', [GradeController::class, 'store'])->name('api.grades.store'); // C
+Route::get('/grades', [GradeController::class, 'index'])->name('api.grades.index'); // R
+Route::put('/grades/{id}', [GradeController::class, 'update'])->name('api.grades.update'); // U
+Route::delete('/grades/{id}', [GradeController::class, 'destroy'])->name('api.grades.destroy'); // D
+
+Route::get('/grades/{id}', [GradeController::class, 'show'])->name('api.grades.show'); // Get 1 grade
 
 
 // Obtenir notes d’assignatures per estudiant. + Obtenir nota mitjana de les notes d’una assignatura
