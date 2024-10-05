@@ -92,14 +92,12 @@ body {
   background-color: #00000025;
   display: flex;
   width: 100%;
-  height: auto;
-  overflow-y: auto;
   flex-wrap: wrap;
+  place-content: center;
 
   .square {
     width: 130px;
     height: 130px;
-    background-color: #84BC42;
     margin: 10px;
     text-align: center;
     border-radius: 6px;
@@ -112,6 +110,8 @@ body {
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
+      text-decoration: none;
+      color: black
     }
 
     h2 {
@@ -120,6 +120,20 @@ body {
 
     h6 {
       font-size: 12px;
+    }
+
+    button {
+      padding: 5px;
+      border: none;
+      border-radius: 6px;
+      color: black;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: rgba(255, 0, 0, 0.555);
+      color: white;
+      z-index: 2;
     }
   }
 }

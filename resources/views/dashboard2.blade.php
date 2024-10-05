@@ -1,5 +1,5 @@
 <x-app-layout title="Dashboard">
-  @include('partials.header', ['dashboardName' => $student->name])
+  @include('partials.header', ['dashboardName' => "$student->name's subjects"])
   <main id="dashboard2">
   
   </main>
