@@ -14,12 +14,18 @@ class ClassRoomFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
+    protected static $courseIndex = 0;
+
     public function definition(): array
     {
         $courses = ['1r ESO', '2n ESO', '3r ESO', '4t ESO'];
 
+        $course = $courses[self::$courseIndex % count($courses)];
+        self::$courseIndex++;
+
         return [
-            'course' => fake()->unique()->randomElement($courses),
+            'course' => $course,
         ];
     }
 }
