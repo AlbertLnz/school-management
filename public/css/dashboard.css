@@ -131,7 +131,7 @@ body {
     }
 
     button:hover {
-      background-color: rgba(255, 0, 0, 0.555);
+      background-color: rgba(4, 38, 59, 0.555);
       color: white;
       z-index: 2;
     }

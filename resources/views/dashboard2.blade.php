@@ -9,7 +9,8 @@
       document.addEventListener('DOMContentLoaded', async () => {
         const studentId = @json($student->id);
         const path = '{{ config('app.url') }}'
-        
+        const deleteButtons = document.querySelectorAll('button[id^="student-"]')
+
         async function getStudentSubjects() {
 
           try {
@@ -53,13 +54,35 @@
               <a href=${'/dashboard/students/'+studentId+'/'+subject.name+'/grades'}>
                 <h2>${subject.name}</h2>
                 <h6>${Math.round(subjectAverage * 100) / 100}</h6>
-                <button>Delete</button>
+                <button id="student-${studentId}/subject-${subject.id}">View</button>
               </a>
             `
             square.style.backgroundColor = squareColor
             content.appendChild(square);
           })
         }
+
+        // deleteButtons.forEach(button => {
+        //   button.addEventListener('click', async () => {
+        //     const studentId = button.id.split('-')[1]
+        //     const subjectId = button.id.split('-')[2]
+        //     console.log('eliminar id:', studentId, subjectId)
+        //     // deleteSubject(studentId, subjectId)
+        //   })
+        // })
+        // async function deleteSubject(subjectId) {
+        //   try {
+        //     const response = await fetch(`${path}/api/subjects/${subjectId}`, {
+        //       method: 'DELETE',
+        //     })
+        //     if (!response.ok) {
+        //       throw new Error('Error al eliminar el estudiante')
+        //     }
+        //     renderMainTable()
+        //   } catch (error) {
+        //     console.error('Hubo un error:', error)
+        //   }
+        // }
 
         drawSubjects()
       })
