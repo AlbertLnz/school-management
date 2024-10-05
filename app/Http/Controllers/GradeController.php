@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
+/**
+ * @OA\Tag(
+ *  name="Grades",
+ *  description="Grades API"
+ * )
+ */
+
 // Command: php artisan make:controller GradeController
 class GradeController extends Controller
 {
@@ -21,6 +28,13 @@ class GradeController extends Controller
 
     // SPECIAL FUNCTIONS
 
+    /**
+     * @OA\Get(
+     *  path="api/students/{studentId}/{subjectId}/grades",
+     *  tags={"grades"},    
+     *  @OA\Response(response="200", description="Obtenir notes d’assignatures per estudiant"),
+     * )
+     */
     public function studentSubjectGrades(int $studentId, int $subjectId)
     {
         $studentSubjects = DB::table('student_subject')->where('student_id', $studentId)->where('subject_id', $subjectId)->first();
@@ -46,6 +60,14 @@ class GradeController extends Controller
         ]);
     }
 
+
+    /**
+     * @OA\Get(
+     *  path="api/students/{studentId}/grades/average",
+     *  tags={"grades"},    
+     *  @OA\Response(response="200", description="Obtenir mitjana de les notes de les assignatures per estudiant"),
+     * )
+     */
     public function averageStudentGrades(int $studentId)
     {
         $studentSubjects = DB::table('student_subject')->where('student_id', $studentId)->get();
@@ -77,6 +99,13 @@ class GradeController extends Controller
         ]);
     }
 
+    /**
+     * @OA\Get(
+     *  path="api/school/grades/average",
+     *  tags={"grades"},    
+     *  @OA\Response(response="200", description="Obtenir mitjana de totes les notes de tots els estudiants (escola)"),
+     * )
+     */
     public function averageSchoolGrades()
     {
         $totalGradesAverage = DB::table('grades')->avg('gradeNum');
@@ -85,6 +114,13 @@ class GradeController extends Controller
         ]);
     }
 
+    /**
+     * @OA\Get(
+     *  path="api/school/{courseId}/grades/average",
+     *  tags={"grades"},    
+     *  @OA\Response(response="200", description="Obtenir mitjana de totes les notes de tots els estudiants (clase)"),
+     * )
+     */
     public function averageSchoolCourseGrades(int $courseId)
     {
         $courseStudents = Student::where('classroom_id', $courseId)->get();

@@ -6,11 +6,22 @@ use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
+/**
+ * @OA\Tag(
+ *  name="Students",
+ *  description="Students API"
+ * )
+ */
+
 // Command: php artisan make:controller StudentController --resource
 class StudentController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * @OA\Get(
+     *     path="api/students",
+     *     tags={"students"},
+     *     @OA\Response(response="200", description="Get all students"),
+     * )
      */
     public function index()
     {
@@ -28,7 +39,11 @@ class StudentController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @OA\Post(
+     *     path="api/student",
+     *     tags={"students"},
+     *     @OA\Response(response="200", description="Create a new student"),
+     * )
      */
     public function store(Request $request)
     {
@@ -62,7 +77,11 @@ class StudentController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * @OA\Get(
+     *     path="api/students/{studentId}",
+     *     tags={"students"},
+     *     @OA\Response(response="200", description="Get 1 student"),
+     * )
      */
     public function show(string $id)
     {
@@ -84,7 +103,11 @@ class StudentController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * @OA\Put(
+     *     path="api/students/{studentId}",
+     *     tags={"students"},
+     *     @OA\Response(response="200", description="Edit 1 student"),
+     * )
      */
     public function update(Request $request, string $id)
     {
@@ -117,7 +140,11 @@ class StudentController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * @OA\Delete(
+     *     path="api/students/{studentId}",
+     *     tags={"students"},
+     *     @OA\Response(response="200", description="Delete 1 student"),
+     * )
      */
     public function destroy(string $id)
     {

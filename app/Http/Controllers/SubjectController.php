@@ -8,11 +8,23 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
+/**
+ * @OA\Tag(
+ *  name="Subjects",
+ *  description="Subjects API"
+ * )
+ */
+
 // Command: php artisan make:controller SubjectController --resource
 class SubjectController extends Controller
 {
+
     /**
-     * Display a listing of the resource.
+     * @OA\Get(
+     *     path="api/subjects",
+     *     tags={"subjects"},
+     *     @OA\Response(response="200", description="Get all subjects"),
+     * )
      */
     public function index()
     {
@@ -30,7 +42,11 @@ class SubjectController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @OA\Post(
+     *     path="api/subject",
+     *     tags={"subjects"},
+     *     @OA\Response(response="200", description="Create a new subject"),
+     * )
      */
     public function store(Request $request)
     {
@@ -57,7 +73,11 @@ class SubjectController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * @OA\Get(
+     *     path="api/subjects/{subjectId}",
+     *     tags={"subjects"},
+     *     @OA\Response(response="200", description="Get 1 subject"),
+     * )
      */
     public function show(string $id)
     {
@@ -79,7 +99,11 @@ class SubjectController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * @OA\Put(
+     *     path="api/subjects/{subjectId}",
+     *     tags={"subjects"},
+     *     @OA\Response(response="200", description="Edit 1 subject"),
+     * )
      */
     public function update(Request $request, string $id)
     {
@@ -108,7 +132,11 @@ class SubjectController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * @OA\Delete(
+     *     path="api/subjects/{subjectId}",
+     *     tags={"subjects"},
+     *     @OA\Response(response="200", description="Delete 1 subject"),
+     * )
      */
     public function destroy(string $id)
     {

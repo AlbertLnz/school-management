@@ -1,0 +1,231 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "School Management API",
+        "description": "Exemple de API de gestió escolar.",
+        "termsOfService": "https://example.com/terms",
+        "contact": {
+            "name": "Albert Lanza",
+            "email": "contact@example.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "api/school/classrooms": {
+            "get": {
+                "tags": [
+                    "classrooms"
+                ],
+                "operationId": "ba402ce88148558b51e5e9d279eb1e25",
+                "responses": {
+                    "200": {
+                        "description": "Get all classrooms"
+                    }
+                }
+            }
+        },
+        "api/students/{studentId}/{subjectId}/grades": {
+            "get": {
+                "tags": [
+                    "grades"
+                ],
+                "operationId": "fc0c5abce81aefe0f0c5d5b70b4bbca3",
+                "responses": {
+                    "200": {
+                        "description": "Obtenir notes d’assignatures per estudiant"
+                    }
+                }
+            }
+        },
+        "api/students/{studentId}/grades/average": {
+            "get": {
+                "tags": [
+                    "grades"
+                ],
+                "operationId": "502c762c31733233b0d527cf5a483268",
+                "responses": {
+                    "200": {
+                        "description": "Obtenir mitjana de les notes de les assignatures per estudiant"
+                    }
+                }
+            }
+        },
+        "api/school/grades/average": {
+            "get": {
+                "tags": [
+                    "grades"
+                ],
+                "operationId": "21f79b0064af5a91a9c96b4c05b57886",
+                "responses": {
+                    "200": {
+                        "description": "Obtenir mitjana de totes les notes de tots els estudiants (escola)"
+                    }
+                }
+            }
+        },
+        "api/school/{courseId}/grades/average": {
+            "get": {
+                "tags": [
+                    "grades"
+                ],
+                "operationId": "b4829dc31ade677c95c51d553e6a29f5",
+                "responses": {
+                    "200": {
+                        "description": "Obtenir mitjana de totes les notes de tots els estudiants (clase)"
+                    }
+                }
+            }
+        },
+        "api/students": {
+            "get": {
+                "tags": [
+                    "students"
+                ],
+                "operationId": "a95a293b3cc962d3e869ee5897a3f475",
+                "responses": {
+                    "200": {
+                        "description": "Get all students"
+                    }
+                }
+            }
+        },
+        "api/student": {
+            "post": {
+                "tags": [
+                    "students"
+                ],
+                "operationId": "1a46cf072f4adee210b3493a666644e8",
+                "responses": {
+                    "200": {
+                        "description": "Create a new student"
+                    }
+                }
+            }
+        },
+        "api/students/{studentId}": {
+            "get": {
+                "tags": [
+                    "students"
+                ],
+                "operationId": "bd368942cb847f3b87bf5cbdc889cd7a",
+                "responses": {
+                    "200": {
+                        "description": "Get 1 student"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "students"
+                ],
+                "operationId": "2e2809440abc9897ae7b13b32bc01a42",
+                "responses": {
+                    "200": {
+                        "description": "Edit 1 student"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "students"
+                ],
+                "operationId": "b12dcf69d85d9b16eb9e1075bbe5f85f",
+                "responses": {
+                    "200": {
+                        "description": "Delete 1 student"
+                    }
+                }
+            }
+        },
+        "api/subjects": {
+            "get": {
+                "tags": [
+                    "subjects"
+                ],
+                "operationId": "0a72367f9ce2fa45e1113e91d1d77543",
+                "responses": {
+                    "200": {
+                        "description": "Get all subjects"
+                    }
+                }
+            }
+        },
+        "api/subject": {
+            "post": {
+                "tags": [
+                    "subjects"
+                ],
+                "operationId": "112a064e7da8b24a1174bb2ede7c28fb",
+                "responses": {
+                    "200": {
+                        "description": "Create a new subject"
+                    }
+                }
+            }
+        },
+        "api/subjects/{subjectId}": {
+            "get": {
+                "tags": [
+                    "subjects"
+                ],
+                "operationId": "f17b04423275f9d864207124db5c8d9e",
+                "responses": {
+                    "200": {
+                        "description": "Get 1 subject"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "subjects"
+                ],
+                "operationId": "1d1504f57c6aa98858fcb9b591164d8b",
+                "responses": {
+                    "200": {
+                        "description": "Edit 1 subject"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "subjects"
+                ],
+                "operationId": "e1f1863152719a23ba6e254f71a63ad4",
+                "responses": {
+                    "200": {
+                        "description": "Delete 1 subject"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "bearerAuth",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "classrooms",
+            "description": "classrooms"
+        },
+        {
+            "name": "grades",
+            "description": "grades"
+        },
+        {
+            "name": "students",
+            "description": "students"
+        },
+        {
+            "name": "subjects",
+            "description": "subjects"
+        }
+    ]
+}
