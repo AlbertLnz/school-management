@@ -47,11 +47,13 @@
 
           subjects.forEach(subject => {
             const square = document.createElement('div')
+            const subjectName = subject.name;
+            const modifiedSubjectName = subjectName.replace(/ /g, '_')
             const subjectAverage = gradesAverage.subjects.filter(grade => grade.subject === subject.name)[0].average
             const squareColor = subjectAverage >= 5.0 ? '#84BC42' : '#E75148'
             square.classList.add('square')
             square.innerHTML = `
-              <a href=${'/dashboard/students/'+studentId+'/'+subject.name+'/grades'}>
+              <a href=${'/dashboard/students/'+studentId+'/'+modifiedSubjectName+'/grades'}>
                 <h2>${subject.name}</h2>
                 <h6>${Math.round(subjectAverage * 100) / 100}</h6>
                 <button id="student-${studentId}/subject-${subject.id}">View</button>
