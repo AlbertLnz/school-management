@@ -1,10 +1,8 @@
 <x-app-layout title="Dashboard">
-  @include('partials.header', ['dashboardName' => $student->name])
+  @include('partials.header', ['dashboardName' => "$student->name's $subject->name assignatura"])
   <main id="dashboard3">
     <canvas id="grades-chart"></canvas>
-    <div id="grades-container">
-
-    </div>
+    <div id="grades-container"></div>
   </main>
 
   @push('scripts')
@@ -73,13 +71,27 @@
           const gradesContainer = document.getElementById('grades-container')
           const average = grades.average
           const msg = `
-            <ul>
-              <li><b>Nom</b>: ${student.name} ${student.surname}</li>
-              <li><b>Assignatura</b>: ${grades.subject}</li>
-              <li><b>Nota mitjana</b>: ${average}</li>
-              <li><b>Nota mínima</b>: ${grades.min}</li>
-              <li><b>Nota máxima</b>: ${grades.max}</li>
-            </ul>
+            <table>
+              <thead>
+                <tr>
+                  <th>Nom</th>
+                  <th>Assignatura</th>
+                  <th>Nota mitjana</th>
+                  <th>Nota mínima</th>
+                  <th>Nota máxima</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>${student.name} ${student.surname}</td>
+                  <td>${grades.subject}</td>
+                  <td>${average}</td>
+                  <td>${grades.min}</td>
+                  <td>${grades.max}</td>
+                </tr>
+              </tbody>
+            </table>
           `
           gradesContainer.innerHTML = msg
         }
