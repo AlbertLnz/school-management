@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "494a3b35f1dd9bf2159065577f49a561",
+    "content-hash": "5716f5f7e52193f6cf667167e32cae4a",
     "packages": [
         {
             "name": "brick/math",
@@ -3383,66 +3383,6 @@
             "time": "2024-04-27T21:32:50+00:00"
         },
         {
-            "name": "spatie/laravel-package-tools",
-            "version": "1.16.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-package-tools.git",
-                "reference": "c7413972cf22ffdff97b68499c22baa04eddb6a2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/c7413972cf22ffdff97b68499c22baa04eddb6a2",
-                "reference": "c7413972cf22ffdff97b68499c22baa04eddb6a2",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "^9.28|^10.0|^11.0",
-                "php": "^8.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.5",
-                "orchestra/testbench": "^7.7|^8.0",
-                "pestphp/pest": "^1.22",
-                "phpunit/phpunit": "^9.5.24",
-                "spatie/pest-plugin-test-time": "^1.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\LaravelPackageTools\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Tools for creating Laravel packages",
-            "homepage": "https://github.com/spatie/laravel-package-tools",
-            "keywords": [
-                "laravel-package-tools",
-                "spatie"
-            ],
-            "support": {
-                "issues": "https://github.com/spatie/laravel-package-tools/issues",
-                "source": "https://github.com/spatie/laravel-package-tools/tree/1.16.5"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/spatie",
-                    "type": "github"
-                }
-            ],
-            "time": "2024-08-27T18:56:10+00:00"
-        },
-        {
             "name": "swagger-api/swagger-ui",
             "version": "v5.17.14",
             "source": {
@@ -5852,83 +5792,6 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/v2.2.7"
             },
             "time": "2023-12-08T13:03:43+00:00"
-        },
-        {
-            "name": "tursodatabase/turso-driver-laravel",
-            "version": "1.0.13",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/tursodatabase/turso-driver-laravel.git",
-                "reference": "d589afde9f2255025bde739c31ee14f644fe5782"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/tursodatabase/turso-driver-laravel/zipball/d589afde9f2255025bde739c31ee14f644fe5782",
-                "reference": "d589afde9f2255025bde739c31ee14f644fe5782",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "^10.0||^11.0",
-                "php": "^8.2",
-                "spatie/laravel-package-tools": "^1.16"
-            },
-            "require-dev": {
-                "larastan/larastan": "^2.9",
-                "laravel/pint": "^1.14",
-                "nunomaduro/collision": "^8.1.1||^7.10.0",
-                "orchestra/testbench": "^9.1",
-                "phpstan/extension-installer": "^1.3",
-                "phpstan/phpstan-deprecation-rules": "^1.1",
-                "phpstan/phpstan-phpunit": "^1.3",
-                "spatie/laravel-ray": "^1.35"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Turso\\Driver\\Laravel\\LibSQLDriverServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Turso\\Driver\\Laravel\\": "src/",
-                    "Turso\\Driver\\Laravel\\Tests\\": "tests/",
-                    "Turso\\Driver\\Laravel\\Database\\Factories\\": "database/factories/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Imam Ali Mustofa",
-                    "email": "darkterminal@duck.com",
-                    "role": "Software Freestyle Engineer"
-                }
-            ],
-            "description": "A Turso Driver for Laravel",
-            "homepage": "https://github.com/tursodatabase/turso-driver-laravel",
-            "keywords": [
-                "laravel",
-                "libsql",
-                "libsql-driver-laravel",
-                "turso",
-                "turso-driver-laravel",
-                "tursodatabase"
-            ],
-            "support": {
-                "issues": "https://github.com/tursodatabase/turso-driver-laravel/issues",
-                "source": "https://github.com/tursodatabase/turso-driver-laravel/tree/1.0.13"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/darkterminal",
-                    "type": "github"
-                }
-            ],
-            "time": "2024-08-28T05:11:00+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
