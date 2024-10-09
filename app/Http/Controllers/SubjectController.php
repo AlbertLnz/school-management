@@ -165,8 +165,8 @@ class SubjectController extends Controller
         $subjects = [];
         foreach ($studentSubjects as $studentSubject) {
             $subjects[] = [
-                'id' => $studentSubject['subject_id'],
-                'name' => Subject::where('id', $studentSubject['subject_id'])->value('name'),
+                'id' => $studentSubject->subject_id,
+                'name' => Subject::where('id', $studentSubject->subject_id)->value('name'),
             ];
         };
 

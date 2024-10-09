@@ -142,14 +142,14 @@ class GradeController extends Controller
     public function studentSubjectGrades(int $studentId, int $subjectId)
     {
         $studentSubjects = DB::table('student_subject')->where('student_id', $studentId)->where('subject_id', $subjectId)->first();
-        $gradesIds = DB::table('student_subject_grade')->where('student_subject_id', $studentSubjects['id'])->pluck('grades_id');
+        $gradesIds = DB::table('student_subject_grade')->where('student_subject_id', $studentSubjects->id)->pluck('grades_id');
 
         $grades = DB::table('grades')->whereIn('id', $gradesIds)->get();
 
         foreach ($grades as $grade) {
             $gradesDictionary[] = [
-                'grade_id' => $grade['id'],
-                'grade_value' => $grade['gradeNum'],
+                'grade_id' => $grade->id,
+                'grade_value' => $grade->gradeNum,
             ];
         }
 
